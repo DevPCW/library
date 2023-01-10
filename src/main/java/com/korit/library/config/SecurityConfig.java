@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/account/login") // 로그인 페이지 get 요청
-                .loginProcessingUrl("/account/login") // 로그인 인증 post 요청
+                .loginProcessingUrl("/account/login") // 로그인 인증 post 요청 // 얘를 쓰려면 두가지 객체가 필요함(security 폴더 생성)
                 .defaultSuccessUrl("/index");
     }
 }
