@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().disable();
         http.authorizeRequests()
                 .antMatchers("/mypage/**", "/security/**")
-                .authenticated() // 요청주소에 'mypage' 와 그뒤에 뭐든 들어오면 인증을 거쳐라
+                .authenticated() // 요청주소에 'mypage' 와 그 뒤에 뭐든 들어오면 인증을 거쳐라
 //                .antMatchers("")
 //                .hasRole("")
                 .anyRequest()
