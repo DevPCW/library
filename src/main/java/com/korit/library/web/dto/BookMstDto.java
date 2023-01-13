@@ -17,7 +17,7 @@ import java.util.Date;
 @Data
 public class BookMstDto {
     @ApiModelProperty(hidden = true)
-    private int bookId; // autoincrement이기 때문에 insert할 때 안써서 swagger hidden 줌
+    private int bookId; // 'autoincrement' 이기 때문에 'insert' 할 때 안써서 swagger hidden 줌
 
     @ApiModelProperty(value = "도서코드", example = "소록-999")
     private String bookCode;
