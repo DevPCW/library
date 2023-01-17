@@ -49,7 +49,6 @@ public class AccountService {
     }
 
     public UserDto getUser(int userId) {
-
         return accountRepository.findUserByUserId(userId);
     }
 }
