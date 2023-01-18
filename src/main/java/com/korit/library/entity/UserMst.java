@@ -1,4 +1,4 @@
-package com.korit.library.web.dto;
+package com.korit.library.entity;
 
 
 import io.swagger.annotations.ApiModelProperty;
@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UserDto {
+public class UserMst {
     @ApiModelProperty(hidden = true)
     private int userId;
 
@@ -42,7 +42,7 @@ public class UserDto {
     private String email;
 
     @ApiModelProperty(hidden = true)
-    private List<RoleDtlDto> roleDtlDto;
+    private List<RoleDtl> roleDtl;
 
     @ApiModelProperty(hidden = true)
     private LocalDateTime createDate;

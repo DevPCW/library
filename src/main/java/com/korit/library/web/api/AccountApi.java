@@ -4,7 +4,7 @@ import com.korit.library.aop.annotation.ValidAspect;
 import com.korit.library.security.PrincipalDetails;
 import com.korit.library.service.AccountService;
 import com.korit.library.web.dto.CMRespDto;
-import com.korit.library.web.dto.UserDto;
+import com.korit.library.entity.UserMst;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +29,12 @@ public class AccountApi {
     @ApiOperation(value = "회원가입", notes = "회원가입 요청 메소드")
     @ValidAspect
     @PostMapping("/register")
-    public ResponseEntity<? extends CMRespDto<? extends UserDto>> register(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
+    public ResponseEntity<? extends CMRespDto<? extends UserMst>> register(@RequestBody @Valid UserMst userMst, BindingResult bindingResult) {
 
-        accountService.duplicateUsername(userDto.getUsername());
-        accountService.compareToPassword(userDto.getPassword(), userDto.getRepassword());;
+        accountService.duplicateUsername(userMst.getUsername());
+        accountService.compareToPassword(userMst.getPassword(), userMst.getRepassword());
 
-        UserDto user = accountService.registerUser(userDto);
+        UserMst user = accountService.registerUser(userMst);
 
         return ResponseEntity
                 .created(URI.create("/api/account/user/" + user.getUserId()))
@@ -49,7 +49,7 @@ public class AccountApi {
         @ApiResponse(code = 401, message = "클라이언트가 잘못했음2")
     })
     @GetMapping("/user/{userId}")
-    public ResponseEntity<? extends CMRespDto<? extends UserDto>> getUser(
+    public ResponseEntity<? extends CMRespDto<? extends UserMst>> getUser(
 //            @ApiParam(value = "사용자 식별 코드")
             @PathVariable int userId) {
         return ResponseEntity

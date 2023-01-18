@@ -1,4 +1,5 @@
-package com.korit.library.web.dto;
+package com.korit.library.entity;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,16 +9,13 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class RoleDtlDto {
-    private int roleDtlId;
+public class RoleMst {
 
-    private int userId;
     private int roleId;
-
-    private RoleMstDto roleMstDto;
+    private String roleName;
 
     private LocalDateTime createDate;
     private LocalDateTime updateDate;

@@ -1,6 +1,5 @@
-package com.korit.library.web.dto;
+package com.korit.library.entity;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,14 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class BookMstDto {
+public class BookMst {
     @ApiModelProperty(hidden = true)
     private int bookId; // 'autoincrement' 이기 때문에 'insert' 할 때 안써서 swagger hidden 줌
 
