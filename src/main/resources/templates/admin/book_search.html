@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>시립도서관</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -62,9 +63,9 @@
             <div class="content-items">
               <select class="category-select">
                 <option value="">전체조회</option>
-                <option value="">경영/경제</option>
-                <option value="">소설</option>
-                <option value="">자기계발</option>
+                <option value="경제/경영">경제/경영</option>
+                <option value="소설">소설</option>
+                <option value="자기계발">자기계발</option>
               </select>
               <input type="search" class="search-input">
               <button type="button" class="search-button">검색</button>
@@ -118,6 +119,6 @@
         </div>
       </main>
     </div>
-    <script src="static/js/admin/book_search.js"></script>
+    <script src="/static/js/admin/book_search.js"></script>
   </body>
 </html>
