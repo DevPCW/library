@@ -31,9 +31,22 @@
 
 .content-items {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-bottom: 10px;
   width: 100%;
+}
+
+.delete-button {
+  border: 1px solid #ff4141;
+  font-weight: 600;
+  padding: 5px 10px;
+  background-color: #ffd2d2;
+}
+
+.delete-button:hover {
+  background-color: #ff4141;
+  font-weight: 600;
+  color: white;
 }
 
 .table-container {
@@ -85,3 +98,8 @@
   color: white;
 }
 
+.page-controller .disabled {
+  background-color: #202020;
+  color: white;
+  cursor: default;
+}
