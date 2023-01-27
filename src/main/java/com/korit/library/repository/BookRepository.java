@@ -42,11 +42,15 @@ public interface BookRepository {
 
     public int deleteBookByBookCode(String bookCode);
 
+    public int deleteBooks(List<Integer> userIds);
+
     public int registerBookImages(List<BookImage> bookImages);
 
     public List<BookImage> findBookImageAll(String bookCode);
 
     public BookImage findBookImageByImageId(int imageId);
     public int deleteBookImage(int imageId);
+
+
 
 }

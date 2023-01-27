@@ -92,6 +92,16 @@ public class BookApi {
                 .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", true));
     }
 
+    @ParamsAspect
+    @DeleteMapping("/books")
+    public ResponseEntity<CMRespDto<?>> deleteBooks(@RequestBody DeleteBooksReqDto deleteBooksReqDto) {
+        bookService.deleteBooks(deleteBooksReqDto);
+        return ResponseEntity
+                .ok()
+                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", true));
+    }
+
+
     @ApiImplicitParams({
             @ApiImplicitParam(name = "files", required = false)
     })

@@ -68,6 +68,9 @@ public class BookService {
     public void deleteBook(String bookCode) {
         bookRepository.deleteBookByBookCode(bookCode);
     }
+    public void deleteBooks(DeleteBooksReqDto deleteBooksReqDto) {
+        bookRepository.deleteBooks(deleteBooksReqDto.getUserIds());
+    }
 
     public void registerBookImages(String bookCode, List<MultipartFile> files) {
         if(files.size() < 1) { // 1보다 적으면 로직 실행
