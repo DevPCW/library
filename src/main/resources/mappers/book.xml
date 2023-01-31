@@ -155,7 +155,7 @@
         insert into book_image
         values
         <foreach collection="list" item="file" separator=","> <!-- 'forEach' 에서 꺼낸 것을 item = "file" 이라고 함. -->
-            (0, #{file.bookCode}, #{file.saveName}, #{file.originName}),
+            (0, #{file.bookCode}, #{file.saveName}, #{file.originName})
         </foreach>
     </insert>
 
