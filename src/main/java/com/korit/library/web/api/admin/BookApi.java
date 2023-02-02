@@ -145,7 +145,7 @@ public class BookApi {
                 .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", bookImages));
     }
 
-    @DeleteMapping("/book/{bookCode}/images/{imageId}")
+    @DeleteMapping("/book/{bookCode}/image/{imageId}")
     public ResponseEntity<CMRespDto<?>> removeBookImg(
             @PathVariable String bookCode,
             @PathVariable int imageId) {

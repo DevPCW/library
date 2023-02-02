@@ -108,6 +108,9 @@ class BookModificationApi {
   removeImg() {
     let successFlag = false;
 
+    console.log(bookObj.bookCode)
+    console.log(imgObj.imageId)
+
     $.ajax({
       async: false,
       type: "delete",
