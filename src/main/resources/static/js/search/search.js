@@ -1,13 +1,21 @@
 window.onload = () => {
+  HeaderService.getInstance().loadHeader();
+
   SearchService.getInstance().clearBookList();
   SearchService.getInstance().loadSearchBooks();
+
 
   console.log(SearchApi.getInstance().getTotalCount());
   console.log(SearchApi.getInstance().searchBook());
   SearchService.getInstance().loadCategories();
+  SearchService.getInstance().setMaxPage();
 
   ComponentEvent.getInstance().addClickEventCategoryCheckboxes();
+  ComponentEvent.getInstance().addScrollEventPaging();
+  ComponentEvent.getInstance().addClickEventSearchButton();
 }
+
+let maxPage = 0;
 
 const searchObj = {
   page: 1,
@@ -93,6 +101,13 @@ class SearchService {
     return this.#instance;
   }
 
+  setMaxPage(){
+    const totalCount = SearchApi.getInstance().getTotalCount();
+    maxPage = totalCount % 10 == 0
+      ? totalCount / 10
+      : Math.floor(totalCount / 10) + 1;
+  }
+
   loadCategories() {
     const categoryList = document.querySelector('.category-list');
     categoryList.innerHTML = ``;
@@ -164,8 +179,49 @@ class ComponentEvent {
           const index = searchObj.categories.indexOf(checkbox.value);
           searchObj.categories.splice(index, 1);
         }
-        console.log(searchObj.categories);
+        // console.log(searchObj.categories);
+
+        document.querySelector('.search-button').click();
       }
     }); 
+  }
+
+  addScrollEventPaging() {
+    const html = document.querySelector('html');
+    const body = document.querySelector('body');
+
+    body.onscroll = () => {
+      console.log("html client: " + html.clientHeight);
+      console.log("body offset: " + body.offsetHeight);
+      // console.log("offset - client = " + (body.offsetHeight - html.clientHeight));
+      // console.log("body scrollTop: " + html.scrollTop);
+
+      const scrollPosition = body.offsetHeight - html.clientHeight - html.scrollTop;
+
+      if(scrollPosition < 250 && searchObj.page < maxPage) {
+        searchObj.page++;
+
+        SearchService.getInstance().loadSearchBooks();
+      }
+    }
+  }
+
+  addClickEventSearchButton() {
+    const searchButton = document.querySelector('.search-button');
+    const searchInput = document.querySelector('.search-input');
+    searchButton.onclick = () => {
+      searchObj.searchValue = searchInput.value;
+      searchObj.page = 1;
+      window.scrollTo(0, 0);
+      SearchService.getInstance().clearBookList();
+      SearchService.getInstance().setMaxPage();
+      SearchService.getInstance().loadSearchBooks();
+    }
+
+    searchInput.onkeyup = () => {
+      if(window.event.keyCode == 13) {
+        searchButton.click();
+      }
+    }
   }
 }
