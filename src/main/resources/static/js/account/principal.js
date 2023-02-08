@@ -1,7 +1,3 @@
-window.onload = () => {
-  
-}
-
 class PrincipalApi {
   static #instance = null;
   static getInstance() {
