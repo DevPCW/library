@@ -1,10 +1,12 @@
 package com.korit.library.web.api;
 
+import com.korit.library.aop.annotation.ParamsAspect;
 import com.korit.library.security.PrincipalDetails;
 import com.korit.library.service.RentalService;
 import com.korit.library.web.dto.CMRespDto;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -30,24 +32,23 @@ public class RentalApi {
     //        this.rentalService = rentalService;
     //    } // 얘를 만들어주는게 @RequiredArgsConstructor 임
 
-
+    @ParamsAspect
     @PostMapping("/rental/{bookId}") // 'rental' 하는 것이기 때문에 POST
     public ResponseEntity<CMRespDto<?>> rental(@PathVariable int bookId,
                                                @AuthenticationPrincipal PrincipalDetails principalDetails) {
         rentalService.rentalOne(principalDetails.getUser().getUserId(), bookId);
         return ResponseEntity
                 .ok()
-                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", null));
+                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", true));
     }
 
+    @ParamsAspect
     @PutMapping("/rental/{bookId}")
     public ResponseEntity<CMRespDto<?>> rentalReturn(@PathVariable int bookId) {
     rentalService.returnBook(bookId);
 
         return ResponseEntity
                 .ok()
-                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", null));
+                .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", true));
     }
-
-
 }

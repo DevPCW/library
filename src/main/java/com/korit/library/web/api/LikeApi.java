@@ -1,5 +1,6 @@
 package com.korit.library.web.api;
 
+import com.korit.library.aop.annotation.ParamsAspect;
 import com.korit.library.security.PrincipalDetails;
 import com.korit.library.service.LikeService;
 import com.korit.library.web.dto.CMRespDto;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class LikeApi {
 
     private final LikeService likeService;
-
+    @ParamsAspect
     @PostMapping("/book/{bookId}/like")
     public ResponseEntity<CMRespDto<Integer>> like(@PathVariable int bookId,
                                                    @AuthenticationPrincipal PrincipalDetails principalDetails) {
@@ -25,7 +26,7 @@ public class LikeApi {
                 .ok()
                 .body(new CMRespDto<>(HttpStatus.OK.value(), "Successfully", likeCount));
     }
-
+    @ParamsAspect
     @DeleteMapping("/book/{bookId}/like")
     public ResponseEntity<CMRespDto<Integer>> dislike(@PathVariable int bookId,
                                                    @AuthenticationPrincipal PrincipalDetails principalDetails) {
