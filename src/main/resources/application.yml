@@ -2,6 +2,16 @@ server:
   port: 8000
 
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 366549248711-d67lcc7739gjmfbbhd80saikk2r0vmfc.apps.googleusercontent.com
+            clientSecret: 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
+            scope:
+              - email
+              - profile
   servlet:
     multipart:
       max-file-size: 200MB

@@ -41,6 +41,11 @@ public class UserMst {
     @ApiModelProperty(name = "email", value = "이메일", example = "abc@gmail.com", required = true)
     private String email;
 
+
+    @ApiModelProperty(name = "provider", value = "OAuth 데이터 출처", example = "Google", required = false)
+    private String provider;
+
+
     @ApiModelProperty(hidden = true)
     private List<RoleDtl> roleDtl;
 

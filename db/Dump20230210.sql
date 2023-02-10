@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `library` /*!40100 DEFAULT CHARACTER SET utf8mb4 
 USE `library`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: library
+-- Host: 127.0.0.1    Database: library
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -55,7 +55,7 @@ CREATE TABLE `book_like` (
   `book_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`like_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `book_like` (
 
 LOCK TABLES `book_like` WRITE;
 /*!40000 ALTER TABLE `book_like` DISABLE KEYS */;
-INSERT INTO `book_like` VALUES (1,1,1),(3,2,1),(4,3,1),(5,4,1),(7,1,2),(8,487,1),(9,487,2),(10,487,3),(11,487,4),(12,487,1),(13,473,1),(14,473,2),(15,473,3),(16,473,4),(17,473,5),(18,473,6);
+INSERT INTO `book_like` VALUES (1,1,1),(3,2,1),(4,3,1),(5,4,1),(7,1,2),(8,487,1),(9,487,2),(10,487,3),(11,487,4),(12,487,1),(13,473,1),(14,473,2),(15,473,3),(16,473,4),(17,473,5),(18,473,6),(45,8,1),(46,16,1),(47,18,1),(60,5,3),(61,6,3),(62,7,3),(63,8,3);
 /*!40000 ALTER TABLE `book_like` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `rental_dtl` (
   `book_id` int NOT NULL,
   `return_date` date DEFAULT NULL,
   PRIMARY KEY (`rental_dtl_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `rental_dtl` (
 
 LOCK TABLES `rental_dtl` WRITE;
 /*!40000 ALTER TABLE `rental_dtl` DISABLE KEYS */;
-INSERT INTO `rental_dtl` VALUES (1,1,472,'2023-01-18'),(2,1,473,NULL),(3,1,475,NULL),(4,2,400,NULL),(5,3,472,'2023-01-19'),(6,4,395,'2023-01-19');
+INSERT INTO `rental_dtl` VALUES (1,1,472,'2023-01-18'),(2,1,473,'2023-02-09'),(3,1,475,NULL),(4,2,400,NULL),(5,3,472,'2023-01-19'),(6,4,395,'2023-01-19'),(7,5,473,'2023-02-09'),(8,6,473,'2023-02-09'),(9,7,473,'2023-02-09'),(10,8,473,'2023-02-09'),(11,9,473,'2023-02-09'),(12,10,473,'2023-02-09'),(13,11,473,NULL),(14,12,13,NULL);
 /*!40000 ALTER TABLE `rental_dtl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +150,7 @@ CREATE TABLE `rental_mst` (
   `rental_date` date NOT NULL,
   `fixed_date` date NOT NULL,
   PRIMARY KEY (`rental_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +159,7 @@ CREATE TABLE `rental_mst` (
 
 LOCK TABLES `rental_mst` WRITE;
 /*!40000 ALTER TABLE `rental_mst` DISABLE KEYS */;
-INSERT INTO `rental_mst` VALUES (1,1,'2023-01-17','2023-01-31'),(2,1,'2023-01-18','2023-02-01'),(3,2,'2023-01-19','2023-02-02'),(4,2,'2023-01-19','2023-02-02');
+INSERT INTO `rental_mst` VALUES (1,1,'2023-01-17','2023-01-31'),(2,1,'2023-01-18','2023-02-01'),(3,2,'2023-01-19','2023-02-02'),(4,2,'2023-01-19','2023-02-02'),(5,1,'2023-02-09','2023-02-23'),(6,1,'2023-02-09','2023-02-23'),(7,1,'2023-02-09','2023-02-23'),(8,1,'2023-02-09','2023-02-23'),(9,1,'2023-02-09','2023-02-23'),(10,1,'2023-02-09','2023-02-23'),(11,1,'2023-02-09','2023-02-23'),(12,3,'2023-02-10','2023-02-24');
 /*!40000 ALTER TABLE `rental_mst` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `role_dtl` (
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`role_dtl_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +186,7 @@ CREATE TABLE `role_dtl` (
 
 LOCK TABLES `role_dtl` WRITE;
 /*!40000 ALTER TABLE `role_dtl` DISABLE KEYS */;
-INSERT INTO `role_dtl` VALUES (10,1,1,'2023-01-10 20:22:59','2023-01-10 20:22:59'),(11,2,1,'2023-01-18 21:30:33','2023-01-18 21:30:33');
+INSERT INTO `role_dtl` VALUES (10,1,1,'2023-01-10 20:22:59','2023-01-10 20:22:59'),(11,2,1,'2023-01-18 21:30:33','2023-01-18 21:30:33'),(12,3,1,'2023-02-10 21:30:49','2023-02-10 21:30:49');
 /*!40000 ALTER TABLE `role_dtl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,10 +229,11 @@ CREATE TABLE `user_mst` (
   `password` varchar(100) NOT NULL,
   `name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
+  `provider` varchar(45) DEFAULT NULL,
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +242,7 @@ CREATE TABLE `user_mst` (
 
 LOCK TABLES `user_mst` WRITE;
 /*!40000 ALTER TABLE `user_mst` DISABLE KEYS */;
-INSERT INTO `user_mst` VALUES (1,'aaa','$2a$10$EACs2R5Sy0H1NQCORA3/3OJWI1CBwgx0HWj1eTuIy3FRzm4jdwC8.','박창우','abc@gmail.com','2023-01-10 20:22:59','2023-01-10 20:22:59'),(2,'bbb','$2a$10$DeeEVpZL2MJKlsESmcqNSOkhN06m3vP9FeNvk/ke4dB4LNo3CjKFS','박창우1','rorndksk123@naver.com','2023-01-18 21:30:33','2023-01-18 21:30:33');
+INSERT INTO `user_mst` VALUES (1,'aaa','$2a$10$EACs2R5Sy0H1NQCORA3/3OJWI1CBwgx0HWj1eTuIy3FRzm4jdwC8.','박창우','abc@gmail.com',NULL,'2023-01-10 20:22:59','2023-01-10 20:22:59'),(2,'bbb','$2a$10$DeeEVpZL2MJKlsESmcqNSOkhN06m3vP9FeNvk/ke4dB4LNo3CjKFS','박창우1','rorndksk123@naver.com',NULL,'2023-01-18 21:30:33','2023-01-18 21:30:33'),(3,'rorndksk123','$2a$10$EMHU4gMXH5m10JBDxt.t5uYjg5iRJPJowywTK.JXw.tQWqMoUXCSy','토이레오','rorndksk123@gmail.com','Google','2023-02-10 21:30:49','2023-02-10 21:30:49');
 /*!40000 ALTER TABLE `user_mst` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -301,4 +302,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-08 21:45:21
+-- Dump completed on 2023-02-10 21:44:48
